@@ -1,0 +1,140 @@
+{
+  "intents": [
+    {
+      "tag": "pozdrav",
+      "patterns": ["Bok", "Pozdrav"],
+      "answers": ["Bok", "Pozdrav"]
+    },
+    {
+      "tag": "procelnik",
+      "patterns": ["Tko je pročelnik?", "Tko je dekan odjela?", "Tko je pročelnik odjela?"],
+      "answers": ["Pročelnik Odjela za matematiku je Kristian Sabo"]
+    },
+    {
+      "tag": "upisi",
+      "patterns": ["Kada su upisi?", "U koliko sati su upisi?", "Kojeg datuma su upisi?"],
+      "answers": [
+        "U tijeku su upisi na diplomske i preddiplomske studije. Koji studiji vas zanimaju?"
+      ],
+      "context_set": "upisi"
+    },
+    {
+      "tag": "upisi-diplomski",
+      "patterns": [
+        "Kada su upisi na diplomski studiji?",
+        "U koliko sati su upisi na diplomski studiji?",
+        "Kojeg datuma su upisi? na diplomski studiji"
+      ],
+      "answers": ["Upisi su 21.7.2021. u 11 sati.", "Upisi će se održati 21.7.2021. u 11 sati."]
+    },
+    {
+      "tag": "upisi-diplomski-followup",
+      "patterns": ["diplomski studiji", "diplomski"],
+      "parent": "upisi-diplomski",
+      "context_filter": "upisi"
+    },
+    {
+      "tag": "upisi-preddiplomski",
+      "patterns": [
+        "Kada su upisi na preddiplomski studiji?",
+        "U koliko sati su upisi na preddiplomski studiji?",
+        "Kojeg datuma su upisi? na preddiplomski studiji"
+      ],
+      "answers": ["Upisi su 21.7.2021. u 12 sati.", "Upisi će se održati 21.7.2021. u 12 sati."]
+    },
+    {
+      "tag": "upisi-preddiplomski-followup",
+      "patterns": ["preddiplomski studiji", "preddiplomski"],
+      "parent": "upisi-preddiplomski",
+      "context_filter": "upisi"
+    },
+    {
+      "tag": "matura",
+      "patterns": [
+        "Koji su obvezni predmeti na maturi?",
+        "Koji su izborni predmeti na maturi?",
+        "Koliko bodova nosi engleski?",
+        "Koliko vrijedi matematika?"
+      ],
+      "answers": ["Obvezni predmeti na maturi su matematika..., izborni su..."]
+    },
+    {
+      "tag": "izvannastavno",
+      "patterns": [
+        "Postoje li izvannastavne aktivnosti na odjelu?",
+        "Koje su aktivnosti izvan nastave?"
+      ],
+      "answers": ["Šah, natjecanja..."]
+    },
+    {
+      "tag": "studiji",
+      "patterns": ["Koji studiji postoje?", "Koji studiji se nude?"],
+      "answers": [
+        "Na Odjelu za matematiku se izvode preddiplomski i diplomski studiji. Koji vas zanimaju?"
+      ],
+      "context_set": "studiji"
+    },
+    {
+      "tag": "studiji-preddiplomski",
+      "patterns": ["Koji preddiplomski studiji postoje?", "Koji preddiplomski studiji se nude?"],
+      "answers": [
+        "Preddiplomski studiji koji se izvode su preddiplomski studiji matematike te preddiplomski studiji matematike i računarstva. Za koji studiji ste zainteresirani?"
+      ],
+      "context_set": "studiji-preddiplomski"
+    },
+    {
+      "tag": "studiji-diplomski",
+      "patterns": ["Koji preddiplomski diplomski postoje?", "Koji diplomski studiji se nude?"],
+      "answers": [
+        "Diplomski studiji koji se izvode su preddiplomski studiji financijske matematike te diplomski studiji matematike i računarstva. Za koji studiji ste zainteresirani?"
+      ],
+      "context_set": "studiji-diplomski"
+    },
+    {
+      "tag": "studiji-preddiplomski-followup",
+      "patterns": ["preddiplomski"],
+      "parent": "studiji-preddiplomski",
+      "context_filter": "studiji"
+    },
+    {
+      "tag": "studiji-diplomski-followup",
+      "patterns": ["diplomski"],
+      "parent": "studiji-diplomski",
+      "context_filter": "studiji"
+    },
+    {
+      "tag": "preddiplomski-mat-rac",
+      "patterns": [
+        "Zanima me preddiplomski studiji matematike i računarstva.",
+        "Preddiplomski studiji matematike i računarstva.",
+        "matematika i računarstvo"
+      ],
+      "answers": ["Više o studiju možete pročitati na <a href='link'>poveznici</a>"]
+    },
+    {
+      "tag": "preddiplomski-mat-rac-followup",
+      "patterns": [
+        "matematika i računarstvo",
+        "studiji matematike i računarstva",
+        "preddiplomski studiji matematika i racunarstva"
+      ],
+      "parent": "preddiplomski-mat-rac",
+      "context_filter": "studiji-preddiplomski"
+    },
+    {
+      "tag": "preddiplomski-mat",
+      "patterns": [
+        "Zanima me preddiplomski studiji matematike.",
+        "Preddiplomski studiji matematike.",
+        "matematika"
+      ],
+      "answers": ["Više o studiju možete pročitati na <a href='link'>poveznici</a>"]
+    },
+    {
+      "tag": "preddiplomski-mat-followup",
+      "patterns": ["matematika", "studiji matematike", "preddiplomski studiji matematika"],
+      "parent": "preddiplomski-mat",
+      "context_filter": "studiji-preddiplomski"
+    }
+  ]
+}

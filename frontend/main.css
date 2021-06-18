@@ -1,0 +1,125 @@
+body {
+  font-family: "Roboto", sans-serif !important;
+}
+
+.chat-toggler {
+  position: absolute;
+  right: 30px;
+  bottom: 100px;
+  background-color: black;
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.chat-type-indicator {
+  height: 20px;
+  background-color: #acada8;
+  color: #e8e9eb;
+  margin-top: -40px;
+  border-radius: 50%;
+  padding: 10px;
+  display: none;
+}
+
+.chat-window {
+  position: absolute;
+  right: 150px;
+  bottom: 100px;
+  background-color: #cccdc6;
+  width: 300px;
+  height: 400px;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+}
+
+.chat-window-header {
+  height: 20px;
+  text-align: right;
+  background-color: #bbbcb6;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  padding: 5px;
+}
+
+.chat-window-close {
+  color: #746d69;
+  cursor: pointer;
+}
+
+.chat-send-form {
+  border-top: #bbbcb6 solid 1px;
+  width: 100%;
+  height: 40px;
+}
+
+.chat-conversation-pusher {
+  flex-grow: 1;
+}
+
+.chat-conversation-container {
+  margin-top: 5px;
+  display: flex;
+  flex-direction: column-reverse;
+  overflow-y: auto;
+}
+
+.chat-message {
+  background-color: #acada8;
+  width: 80%;
+  min-height: 20px;
+  padding: 10px;
+  margin: 5px;
+  margin-top: 0;
+  color: #e8e9eb;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+}
+
+.chat-question {
+  float: right;
+  border-radius: 20px 20px 0px 20px;
+}
+
+.chat-answer {
+  align-self: start;
+  border-radius: 20px 20px 20px 0px;
+}
+
+.chat-new-question {
+  border: 0;
+  border-radius: 10px;
+  height: 25px;
+  margin: 4px;
+  background-color: #e8e9eb;
+  color: #746d69;
+  width: 70%;
+  padding-left: 5px;
+}
+
+.chat-send-button {
+  background-color: #e8e9eb;
+  color: #746d69;
+  border-radius: 5px 5px 50% 5px;
+  height: 25px;
+  border: #acada8 solid 1px;
+  font-family: "Roboto", sans-serif !important;
+  padding-right: 10px;
+}
+
+.chat-send-button:hover {
+  opacity: 0.8;
+}
+
+.chat-send-button:active {
+  opacity: 1;
+  box-shadow: 0 1px #666;
+  transform: translateY(1px);
+}

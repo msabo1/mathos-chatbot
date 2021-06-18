@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="main.css" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <title>Chatbot</title>
+    <script src="./scripts/vendor/jquery-3.6.0.min.js"></script>
+  </head>
+  <body>
+    <div class="chat-toggler">
+      <div class="chat-type-indicator">Pišem...</div>
+      <svg height="100" width="100">
+        <circle
+          id="c1"
+          stroke="white"
+          stroke-width="6.25"
+          fill="transparent"
+          r="46.875"
+          cx="50"
+          cy="50"
+          stroke-linecap="round"
+        ></circle>
+        <circle
+          stroke="white"
+          stroke-width="2.1"
+          fill="transparent"
+          r="46.875"
+          cx="50"
+          cy="50"
+        ></circle>
+        <circle
+          id="c2"
+          stroke="white"
+          stroke-width="6.25"
+          fill="transparent"
+          r="34.375"
+          cx="50"
+          cy="50"
+          stroke-linecap="round"
+        ></circle>
+        <circle
+          stroke="white"
+          stroke-width="2.1"
+          fill="transparent"
+          r="34.375"
+          cx="50"
+          cy="50"
+        ></circle>
+        <circle
+          id="c3"
+          stroke="white"
+          stroke-width="6.25"
+          fill="transparent"
+          r="21.875"
+          cx="50"
+          cy="50"
+          stroke-linecap="round"
+        ></circle>
+        <circle
+          stroke="white"
+          stroke-width="2.1"
+          fill="transparent"
+          r="21.875"
+          cx="50"
+          cy="50"
+        ></circle>
+        <circle
+          id="c4"
+          stroke="white"
+          stroke-width="6.25"
+          fill="transparent"
+          r="9.375"
+          cx="50"
+          cy="50"
+          stroke-linecap="round"
+        ></circle>
+        <circle
+          stroke="white"
+          stroke-width="2.1"
+          fill="transparent"
+          r="9.375"
+          cx="50"
+          cy="50"
+        ></circle>
+      </svg>
+    </div>
+    <div class="chat-window">
+      <div class="chat-window-header"><span class="chat-window-close">&times;</span></div>
+      <div class="chat-conversation-pusher"></div>
+      <div class="chat-conversation-container">
+        <div class="chat-conversation"></div>
+      </div>
+      <div class="chat-send-form">
+        <input type="text" class="chat-new-question" placeholder="Napišite poruku" />
+        <button class="chat-send-button">Pošalji</button>
+      </div>
+    </div>
+
+    <script>
+      let context;
+
+      const rotations = [20, 230, 60, 180];
+      const lengths = [0.7, 0.4, 0.3, 0.6];
+      const radius = [46.875, 34.375, 21.875, 9.375];
+      const circles = [$("#c1"), $("#c2"), $("#c3"), $("#c4")];
+      for (let i = 0; i < 4; i++) {
+        const circumference = radius[i] * 2 * Math.PI;
+        circles[i].css({
+          strokeDasharray: `${circumference} ${circumference}`,
+          strokeDashoffset: circumference - lengths[i] * circumference,
+          transformOrigin: "50% 50%",
+          transform: `rotate(${rotations[i]}deg`,
+        });
+      }
+
+      let rotationInterval;
+      let hidden = true;
+      let sendQuestion = () => {
+        const newQuestion = $(
+          `<div class="chat-message chat-question">${$(".chat-new-question").eq(0).val()}</div>`
+        );
+        $(".chat-conversation").eq(0).append(newQuestion);
+
+        newQuestion.hide();
+        newQuestion.show(100);
+        rotationInterval = setInterval(() => {
+          for (let i = 0; i < 4; i++) {
+            rotations[i] += i % 2 == 0 ? 1 : -1;
+            circles[i].css({ transform: `rotate(${rotations[i]}deg)` });
+          }
+        }, 10);
+        $(".chat-type-indicator").eq(0).css({ display: "initial" });
+        question = $(".chat-new-question").eq(0).val();
+        setTimeout(() => {
+          $.ajax({
+            type: "POST",
+            url: `http://localhost:3000/`,
+            dataType: "json",
+            data: {
+              question,
+              context,
+            },
+            headers: {
+              "content-type": "application/json; charset=utf-8",
+            },
+          }).done((data) => {
+            const answer = $(`<div class="chat-message chat-answer">${data.answer}</div>`);
+            $(".chat-conversation").eq(0).append(answer);
+            answer.hide();
+            answer.show(100);
+            clearInterval(rotationInterval);
+            $(".chat-type-indicator").eq(0).css({ display: "none" });
+            context = data.context || undefined;
+            console.log(data);
+          });
+        }, 500);
+        $(".chat-new-question").eq(0).val("");
+      };
+
+      $(".chat-window").eq(0).hide();
+      $(".chat-toggler")
+        .eq(0)
+        .on("click", () => {
+          if (hidden) {
+            $(".chat-window").eq(0).show(100);
+            hidden = false;
+          } else {
+            $(".chat-window").eq(0).hide(100);
+            hidden = true;
+          }
+        });
+
+      $(".chat-window-close")
+        .eq(0)
+        .on("click", () => {
+          $(".chat-window").eq(0).hide(100);
+          hidden = true;
+        });
+
+      $(".chat-send-button").eq(0).on("click", sendQuestion);
+      $(".chat-new-question")
+        .eq(0)
+        .on("keypress", (e) => {
+          if (e.keyCode == 13) {
+            sendQuestion();
+          }
+        });
+    </script>
+  </body>
+</html>
