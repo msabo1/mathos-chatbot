@@ -89,8 +89,9 @@ class MyHandler(BaseHTTPRequestHandler):
         probabilities = torch.softmax(out, dim=1)
         intent_id = torch.argmax(probabilities[0])
         intent = intents['intents'][intent_id.item()]
-        if probabilities[0][intent_id] < 0.7 or ((intent.get('context_filter') != None and query.get('context') == None) or intent.get('context_filter') != query.get('context')):
-            self.wfile.write(json.dumps({'answer': 'Na žalost, ne razumijem vaše pitanje!'}).encode())
+        print(probabilities[0][intent_id])
+        if probabilities[0][intent_id] < 0.7 or ((intent.get('context_filter') != None and query.get('context') == None) or (intent.get('context_filter') != query.get('context') if intent.get('context_filter') != None else False)):
+            self.wfile.write(json.dumps({'answer': 'Na žalost, ne razumijem vaše pitanje!', 'context': query.get('context')}).encode())
         else:
             if intent.get('parent'):
                 intent = intents['intents'][intent_tag_to_id[intent['parent']]]

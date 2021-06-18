@@ -135,6 +135,44 @@
       "patterns": ["matematika", "studiji matematike", "preddiplomski studiji matematika"],
       "parent": "preddiplomski-mat",
       "context_filter": "studiji-preddiplomski"
+    },
+    {
+      "tag": "diplomski-mat-rac",
+      "patterns": [
+        "Zanima me diplomski studiji matematike i računarstva.",
+        "diplomski studiji matematike i računarstva.",
+        "matematika i računarstvo"
+      ],
+      "answers": ["Više o studiju možete pročitati na <a href='link'>poveznici</a>"]
+    },
+    {
+      "tag": "diplomski-mat-rac-followup",
+      "patterns": [
+        "matematika i računarstvo",
+        "studiji matematike i računarstva",
+        "diplomski studiji matematika i racunarstva"
+      ],
+      "parent": "diplomski-mat-rac",
+      "context_filter": "studiji-diplomski"
+    },
+    {
+      "tag": "diplomski-mat",
+      "patterns": [
+        "Zanima me diplomski studiji financijske matematike.",
+        "diplomski studiji financijske matematike.",
+        "finacijska matematika"
+      ],
+      "answers": ["Više o studiju možete pročitati na <a href='link'>poveznici</a>"]
+    },
+    {
+      "tag": "diplomski-mat-followup",
+      "patterns": [
+        "financijska matematika",
+        "studiji  financijske matematike",
+        "diplomski studiji financijske matematike"
+      ],
+      "parent": "diplomski-mat",
+      "context_filter": "studiji-diplomski"
     }
   ]
 }
