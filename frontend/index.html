@@ -138,29 +138,35 @@
         }, 10);
         $(".chat-type-indicator").eq(0).css({ display: "initial" });
         question = $(".chat-new-question").eq(0).val();
-        setTimeout(() => {
-          $.ajax({
-            type: "POST",
-            url: `http://localhost:3000/`,
-            dataType: "json",
-            data: {
-              question,
-              context,
-            },
-            headers: {
-              "content-type": "application/json; charset=utf-8",
-            },
-          }).done((data) => {
-            const answer = $(`<div class="chat-message chat-answer">${data.answer}</div>`);
-            $(".chat-conversation").eq(0).append(answer);
-            answer.hide();
-            answer.show(100);
-            clearInterval(rotationInterval);
-            $(".chat-type-indicator").eq(0).css({ display: "none" });
-            context = data.context || undefined;
-            console.log(data);
+        $.ajax({
+          type: "POST",
+          url: `http://localhost:3000/`,
+          dataType: "json",
+          data: {
+            question,
+            context,
+          },
+          headers: {
+            "content-type": "application/json; charset=utf-8",
+          },
+        }).done((data) => {
+          data.answer = data.answer.split("<nm>");
+          data.answer.forEach((reply, i) => {
+            setTimeout(() => {
+              const answer = $(`<div class="chat-message chat-answer"><div>${reply}</div></div>`);
+              $(".chat-conversation").eq(0).append(answer);
+              answer.hide();
+              answer.show(100);
+              if (i == data.answer.length - 1) {
+                clearInterval(rotationInterval);
+                $(".chat-type-indicator").eq(0).css({ display: "none" });
+              }
+            }, (i + 1) * 500 + (i > 0 ? 100 : 0));
           });
-        }, 500);
+
+          context = data.context || undefined;
+          console.log(data);
+        });
         $(".chat-new-question").eq(0).val("");
       };
 
@@ -170,6 +176,7 @@
         .on("click", () => {
           if (hidden) {
             $(".chat-window").eq(0).show(100);
+            $(".chat-new-question").focus();
             hidden = false;
           } else {
             $(".chat-window").eq(0).hide(100);

@@ -23,9 +23,11 @@
       "patterns": [
         "Kada su upisi na diplomski studiji?",
         "U koliko sati su upisi na diplomski studiji?",
-        "Kojeg datuma su upisi? na diplomski studiji"
+        "Kojeg datuma su upisi na diplomski studiji"
       ],
-      "answers": ["Upisi su 21.7.2021. u 11 sati.", "Upisi će se održati 21.7.2021. u 11 sati."]
+      "answers": [
+        "Prijave za upis podnose se u Studentskoj referadi Odjela za matematiku. Prijave se primaju za prvi upisni rok: od 14. do 25. rujna 2020., a za drugi upisni rok od 28. rujna do 7. listopada 2020.<nm>Više o upisima možete pronaći <a target='_blank' href='https://www.mathos.unios.hr/index.php/upisi/upis-u-diplomski-studij'>ovdje</a>."
+      ]
     },
     {
       "tag": "upisi-diplomski-followup",
@@ -40,7 +42,9 @@
         "U koliko sati su upisi na preddiplomski studiji?",
         "Kojeg datuma su upisi? na preddiplomski studiji"
       ],
-      "answers": ["Upisi su 21.7.2021. u 12 sati.", "Upisi će se održati 21.7.2021. u 12 sati."]
+      "answers": [
+        "Upisi će se provoditi 22. srpnja 2021. od 8:00 do 12:00 sati (ljetni rok) te 20. rujna 2021. od 8:00 do 12:00 sati. (jesenski rok).<nm>Više o upisima možete pronaći <a target='_blank' href='https://www.mathos.unios.hr/index.php/upisi/upis-u-preddiplomski-studij'>ovdje</a>."
+      ]
     },
     {
       "tag": "upisi-preddiplomski-followup",
@@ -56,15 +60,20 @@
         "Koliko bodova nosi engleski?",
         "Koliko vrijedi matematika?"
       ],
-      "answers": ["Obvezni predmeti na maturi su matematika..., izborni su..."]
+      "answers": [
+        "Obvezni predmeti na maturi su matematika na razini A, prag za upis je 40%, a na pri upisu donosi 50% bodova te hrvatski jezik na razini A ili B i strani jezik na razini A ili B koji pri upisu ne donose bodove. Prednost možete ostvariti pisanjem ispita iz informatike čije polaganje nije uvjet za upis, ali donosi 20% bodova pri upisu.<nm>Više bodovanju i upisima općenito možete pronaći <a target='_blank' href='https://www.mathos.unios.hr/index.php/upisi/upis-u-preddiplomski-studij'>ovdje</a>."
+      ]
     },
     {
       "tag": "izvannastavno",
       "patterns": [
         "Postoje li izvannastavne aktivnosti na odjelu?",
-        "Koje su aktivnosti izvan nastave?"
+        "Koje su aktivnosti izvan nastave?",
+        "Koje su izvannastavne aktivnosti?"
       ],
-      "answers": ["Šah, natjecanja..."]
+      "answers": [
+        "Trenutno se na odjelu održavaju pripreme za natjecanja te šahovska sekcija kao izvannastavne aktivnosti. Također postoji mogućnost korištenja fitness dvorane koja je dio odjela.<nm>Većinu izvannastavnih aktivnosti organiziraju studenti. Ako imate ideju i vi možete nešto organizirati."
+      ]
     },
     {
       "tag": "studiji",
@@ -109,7 +118,9 @@
         "Preddiplomski studiji matematike i računarstva.",
         "matematika i računarstvo"
       ],
-      "answers": ["Više o studiju možete pročitati na <a href='link'>poveznici</a>"]
+      "answers": [
+        "Više o studiju možete pročitati na <a target='_blank' href='https://www.mathos.unios.hr/index.php/nastava/preddiplomski-studij-matematika-i-racunarstvo'>poveznici</a>"
+      ]
     },
     {
       "tag": "preddiplomski-mat-rac-followup",
@@ -128,7 +139,9 @@
         "Preddiplomski studiji matematike.",
         "matematika"
       ],
-      "answers": ["Više o studiju možete pročitati na <a href='link'>poveznici</a>"]
+      "answers": [
+        "Više o studiju možete pročitati <a target='_blank' href='https://www.mathos.unios.hr/index.php/nastava/preddiplomski-studij-matematika'>ovdje</a>"
+      ]
     },
     {
       "tag": "preddiplomski-mat-followup",
@@ -143,7 +156,9 @@
         "diplomski studiji matematike i računarstva.",
         "matematika i računarstvo"
       ],
-      "answers": ["Više o studiju možete pročitati na <a href='link'>poveznici</a>"]
+      "answers": [
+        "Više o studiju možete pročitati <a target='_blank' href='https://www.mathos.unios.hr/index.php/nastava/matematika-i-racunarstvo'>ovdje</a>"
+      ]
     },
     {
       "tag": "diplomski-mat-rac-followup",
@@ -162,7 +177,9 @@
         "diplomski studiji financijske matematike.",
         "finacijska matematika"
       ],
-      "answers": ["Više o studiju možete pročitati na <a href='link'>poveznici</a>"]
+      "answers": [
+        "Više o studiju možete pročitati <a target='_blank' href='https://www.mathos.unios.hr/index.php/nastava/financijska-matematika-i-statistika'>ovdje</a>"
+      ]
     },
     {
       "tag": "diplomski-mat-followup",

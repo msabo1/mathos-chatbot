@@ -26,20 +26,6 @@ model = ChatbotModel(model_data['input_size'], model_data['hidden_size'], model_
 model.load_state_dict(model_data['state'])
 model.eval()
 
-# while True:
-#     question = input('Y: ')
-#     question = [normalize(word) for word in nltk.word_tokenize(question) if word not in ignore_words]
-#     bow = bag_of_words.generate(question)
-#     bow = bow.reshape(1, bow.shape[0])
-#     print(bow)
-#     out = model(torch.from_numpy(bow).to(torch.float).to(device))
-#     probabilities = torch.softmax(out, dim=1)
-#     intent_id = torch.argmax(probabilities[0])
-#     if probabilities[0][intent_id] < 0.7:
-#         print('Na žalost, ne razumijem vaše pitanje!')
-#     else:
-#         print(random.choice(intents['intents'][intent_id.item()]['answers']))
-
 intent_tag_to_id = {}
 id = 0
 
@@ -99,6 +85,8 @@ class MyHandler(BaseHTTPRequestHandler):
     
 
 server = HTTPServer(('', 3000), MyHandler)
+print('Started listening')
 server.serve_forever()
+
 
         
