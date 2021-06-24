@@ -95,7 +95,7 @@
       "tag": "studiji-diplomski",
       "patterns": ["Koji preddiplomski diplomski postoje?", "Koji diplomski studiji se nude?"],
       "answers": [
-        "Diplomski studiji koji se izvode su preddiplomski studiji financijske matematike te diplomski studiji matematike i računarstva. Za koji studiji ste zainteresirani?"
+        "Diplomski studiji koji se izvode su diplomski studiji financijska matematika i statistika, nastavnički diplomski studiji matematike i informatike te diplomski studiji matematika i računarstvo. Za koji studiji ste zainteresirani?"
       ],
       "context_set": "studiji-diplomski"
     },
@@ -190,6 +190,119 @@
       ],
       "parent": "diplomski-mat",
       "context_filter": "studiji-diplomski"
+    },
+    {
+      "tag": "diplomski-nast",
+      "patterns": [
+        "Zanima me nastavnički diplomski studiji matematike i informatike.",
+        "Zanima me nastavnički diplomski studiji",
+        "Zanima me nastavnički studiji",
+        "diplomski studiji matematike i informatike.",
+        "matematika i informatika"
+      ],
+      "answers": [
+        "Više o studiju možete pročitati <a target='_blank' href='https://www.mathos.unios.hr/index.php/nastava/diplomski-studij-nastavnicki-studij-matematike-i-informatike'>ovdje</a>"
+      ]
+    },
+    {
+      "tag": "diplomski-nast-followup",
+      "patterns": [
+        "matematika i informatika",
+        "studiji matematike i informatike",
+        "diplomski studiji matematika i informatika",
+        "nastavnički",
+        "nastavnički studiji",
+        "nastavnički studiji matematika i informatika",
+        "diplomski nastavnički studiji"
+      ],
+      "parent": "diplomski-nast",
+      "context_filter": "studiji-diplomski"
+    },
+    {
+      "tag": "referada",
+      "patterns": [
+        "Vrijeme referade?",
+        "Do kada radi?",
+        "Radno vrijeme referade?",
+        "Radno vrijeme referade?"
+      ],
+      "answers": ["ponedjeljak - petak 7:30 - 14:30 (za studente)"]
+    },
+    {
+      "tag": "referada-kontakt",
+      "patterns": [
+        "Kontakt referade?",
+        "Broj referade?",
+        "Kako dobiti referadu?",
+        "Referada kontakt",
+        "Referada telefon?",
+        "Kako kontaktirati referadu?"
+      ],
+      "answers": ["Referadu možeš dobiti putem broja 031 224 860 ili e-mail: referada@mathos.hr"]
+    },
+    {
+      "tag": "adresa-fax",
+      "patterns": ["Gdje se nalazi fax?", "Kako doci do faxa?", "Adresa"],
+      "answers": ["Trg Ljudevita Gaja 6 31000 Osijek<nm>Blizu glavne tržnice u Osijeku."]
+    },
+    {
+      "tag": "opci-podaci-fax",
+      "patterns": [
+        "Podaci o faxu?",
+        "Informacije o faxu?",
+        "Opci podaci za fax?",
+        "Podaci o faxu za studente?"
+      ],
+      "answers": [
+        "Opci podaci o fakultetu IBAN: HR3725000091402000049 Matični broj: 3049779 OIB: 78808975734"
+      ]
+    },
+    {
+      "tag": "studentski-zbor",
+      "patterns": ["Clanovi studenskog zbora?", "Studenski zbor?", "Zbor faxa?"],
+      "answers": [
+        "Predsjednica Paula Džigumović i zamjenik Antonio Jovanović ",
+        "Studentski pravobranitelj je Tihana Vuković,",
+        "Kontakt szbor@mathos.hr"
+      ]
+    },
+    {
+      "tag": "virutalna-setnja",
+      "patterns": ["Kako izgleda fakultet?", "Kako izgleda mathos?", "Virtualna setnja fakultetom"],
+      "answers": [
+        "Virutalnu setnju Odjelom za matematiku mozete pronaci <a target='_blank' href='https://www.mathos.unios.hr/virtual-tour/'>ovdje</a>."
+      ]
+    },
+    {
+      "tag": "youtube",
+      "patterns": [
+        "Youtube kanal fakulteta",
+        "Ima li odjel za matematiku Youtube kanal?",
+        "Mathos Youtube"
+      ],
+      "answers": [
+        "Youtube kanal fakulteta mozete pronaci <a target='_blank' href='https://www.youtube.com/channel/UCYnkm9H7jw0gxOsvHv6Uw-Q'>ovdje</a>."
+      ]
+    },
+    {
+      "tag": "akademska",
+      "patterns": [
+        "Kada počinje akademska godina?",
+        "Kada završava akademska godina",
+        "Koliko traje akademska godina?"
+      ],
+      "answers": ["Svaka nova akademska godina počinje 1. listopada."]
+    },
+    {
+      "tag": "osnutak",
+      "patterns": [
+        "Kada je odjel osnovan",
+        "kada je fakultet osnovan",
+        "kada je odjel započeo s radom"
+      ],
+      "answers": [
+        "Odjel za matematiku je osnovan 1. listopada 1999. godine.<nm>Više infomacija o odjelu i njegovoj povijesti možete pronaći <a target='_blank' href='https://www.mathos.unios.hr/index.php/odjel/informacije-o-odjelu'>ovdje</a>."
+      ]
     }
   ]
 }

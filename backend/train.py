@@ -40,7 +40,7 @@ for i in range(len(X_train)):
 X_train = np.array(X_train)
 y_train = np.array(y_train, dtype=float)
 
-num_epochs = 1500
+num_epochs = 3000
 batch_size = 8
 lr = 0.001
 input_size = X_train.shape[1]

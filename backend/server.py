@@ -1,9 +1,8 @@
-import cgi
 import json
 import random
 from http.server import (BaseHTTPRequestHandler, HTTPServer,
                          SimpleHTTPRequestHandler)
-from urllib.parse import unquote, urlparse
+from urllib.parse import unquote
 
 import nltk
 import torch
@@ -52,12 +51,7 @@ class MyHandler(BaseHTTPRequestHandler):
 
     def do_HEAD(self):
         self._set_headers()
-
-    def do_GET(self):
-        if self.path == '/':
-            self.path = '../frontent/index.html'
         
-
     def do_POST(self):
         self._set_headers()
         print(self.headers.get('content-type'))
