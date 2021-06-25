@@ -2,8 +2,13 @@
   "intents": [
     {
       "tag": "pozdrav",
-      "patterns": ["Bok", "Pozdrav"],
-      "answers": ["Bok", "Pozdrav"]
+      "patterns": ["Bok", "Pozdrav", "dobar dan", "dobro jutro", "dobra vecer"],
+      "answers": ["Bok, kako vam mogu pomoći?", "Pozdrav, kako vam mogu pomoći?"]
+    },
+    {
+      "tag": "kako-si",
+      "patterns": ["Kako si?", "Kako ste", "Kako se osjećate", "kako se osjećaš"],
+      "answers": ["Odlično se osjećam, mogu li vam nekako pomoći?"]
     },
     {
       "tag": "procelnik",
@@ -58,7 +63,9 @@
         "Koji su obvezni predmeti na maturi?",
         "Koji su izborni predmeti na maturi?",
         "Koliko bodova nosi engleski?",
-        "Koliko vrijedi matematika?"
+        "Koliko vrijedi matematika?",
+        "koji su uvjeti upisa",
+        "uvjeti upisa"
       ],
       "answers": [
         "Obvezni predmeti na maturi su matematika na razini A, prag za upis je 40%, a na pri upisu donosi 50% bodova te hrvatski jezik na razini A ili B i strani jezik na razini A ili B koji pri upisu ne donose bodove. Prednost možete ostvariti pisanjem ispita iz informatike čije polaganje nije uvjet za upis, ali donosi 20% bodova pri upisu.<nm>Više bodovanju i upisima općenito možete pronaći <a target='_blank' href='https://www.mathos.unios.hr/index.php/upisi/upis-u-preddiplomski-studij'>ovdje</a>."
@@ -93,7 +100,7 @@
     },
     {
       "tag": "studiji-diplomski",
-      "patterns": ["Koji preddiplomski diplomski postoje?", "Koji diplomski studiji se nude?"],
+      "patterns": ["Koji diplomski diplomski postoje?", "Koji diplomski studiji se nude?"],
       "answers": [
         "Diplomski studiji koji se izvode su diplomski studiji financijska matematika i statistika, nastavnički diplomski studiji matematike i informatike te diplomski studiji matematika i računarstvo. Za koji studiji ste zainteresirani?"
       ],
@@ -242,8 +249,17 @@
     },
     {
       "tag": "adresa-fax",
-      "patterns": ["Gdje se nalazi fax?", "Kako doci do faxa?", "Adresa"],
-      "answers": ["Trg Ljudevita Gaja 6 31000 Osijek<nm>Blizu glavne tržnice u Osijeku."]
+      "patterns": [
+        "Gdje se nalazi fax?",
+        "Kako doci do faxa?",
+        "Adresa",
+        "Gdje se nalazi fakultet?",
+        "Kako doci do fakultet?",
+        "Gdje je fakultet"
+      ],
+      "answers": [
+        "Trg Ljudevita Gaja 6 31000 Osijek<nm>Blizu glavne tržnice u Osijeku.<nm>Lokaciju na karti možete vidjeti <a href='https://www.mathos.unios.hr/index.php/odjel/kako-nas-pronaci' target='_blank'>ovdje</a>."
+      ]
     },
     {
       "tag": "opci-podaci-fax",
@@ -251,19 +267,14 @@
         "Podaci o faxu?",
         "Informacije o faxu?",
         "Opci podaci za fax?",
-        "Podaci o faxu za studente?"
+        "Podaci o faxu za studente?",
+        "Podaci o fakultetu?",
+        "Informacije o fakultetu?",
+        "Opci podaci za fakultet?",
+        "Podaci o fakultetu za studente?"
       ],
       "answers": [
         "Opci podaci o fakultetu IBAN: HR3725000091402000049 Matični broj: 3049779 OIB: 78808975734"
-      ]
-    },
-    {
-      "tag": "studentski-zbor",
-      "patterns": ["Clanovi studenskog zbora?", "Studenski zbor?", "Zbor faxa?"],
-      "answers": [
-        "Predsjednica Paula Džigumović i zamjenik Antonio Jovanović ",
-        "Studentski pravobranitelj je Tihana Vuković,",
-        "Kontakt szbor@mathos.hr"
       ]
     },
     {
@@ -303,6 +314,36 @@
       "answers": [
         "Odjel za matematiku je osnovan 1. listopada 1999. godine.<nm>Više infomacija o odjelu i njegovoj povijesti možete pronaći <a target='_blank' href='https://www.mathos.unios.hr/index.php/odjel/informacije-o-odjelu'>ovdje</a>."
       ]
+    },
+    {
+      "tag": "knjiznica-vrijeme",
+      "patterns": [
+        "Kada radi knjiznica",
+        "radno vrijeme knjiznice",
+        "koje je radno vrijeme knjiznice"
+      ],
+      "answers": ["ponedjeljak - petak, 7:30 - 14:30 (za korisnike)"]
+    },
+    {
+      "tag": "knjiznica-kontakt",
+      "patterns": [
+        "Kako kontaktirati knjiznicu",
+        "Broj telefona knjiznice",
+        "Mail knjiznice",
+        "Koji je kontakt knjiznice"
+      ],
+      "answers": ["tel: 031 224 813, email: knjiznica@mathos.hr"]
+    },
+    {
+      "tag": "hvala",
+      "patterns": [
+        "hvala",
+        "zahvaljujem",
+        "hvala puno",
+        "hvala na pomoći",
+        "zahvaljujem na pomoći"
+      ],
+      "answers": ["Drago mi je da sam pomogao."]
     }
   ]
 }

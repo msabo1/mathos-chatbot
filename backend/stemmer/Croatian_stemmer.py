@@ -16,6 +16,7 @@
 #    You should have received a copy of the GNU Lesser General Public License
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+import os
 import re
 import sys
 
@@ -24,8 +25,8 @@ stop=set(['biti','jesam','budem','sam','jesi','budeš','si','jesmo','budemo','sm
 
 class CroatianStemmer(object):
     def __init__(self):
-        self.pravila=[re.compile(r'^('+osnova+')('+nastavak+r')$') for osnova, nastavak in [e.strip().split(' ') for e in open('rules.txt')]]
-        self.transformacije=[e.strip().split('\t') for e in open('transformations.txt')]
+        self.pravila=[re.compile(r'^('+osnova+')('+nastavak+r')$') for osnova, nastavak in [e.strip().split(' ') for e in open(os.path.join(os.path.dirname(__file__), 'rules.txt'))]]
+        self.transformacije=[e.strip().split('\t') for e in open(os.path.join(os.path.dirname(__file__), 'transformations.txt'))]
 
     def stem(self, token):
         if token.lower() in stop:

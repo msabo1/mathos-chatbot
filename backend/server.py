@@ -54,11 +54,9 @@ class MyHandler(BaseHTTPRequestHandler):
         
     def do_POST(self):
         self._set_headers()
-        print(self.headers.get('content-type'))
         content_len = int(self.headers.get('Content-Length'))
         query = unquote(self.rfile.read(content_len).decode(encoding='utf_8'))
         query = dict(qc.split("=") for qc in query.split("&"))
-        print(query)
         question = query['question']
         question = [normalize(word) for word in nltk.word_tokenize(question) if word not in ignore_words]
         if query.get('context') != None:
